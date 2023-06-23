@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <div>
+      <style>
+        /* CSS Styles */
+        body {
+          font-family: Arial, sans-serif;
+          background-color: #f4f4f4;
+          margin: 0;
+          padding: 0;
+        }
+
+        .container {
+          max-width: 600px;
+          margin: 20px auto;
+          padding: 20px;
+          background-color: #ffffff;
+          border-radius: 4px;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+          color: #333333;
+          margin-top: 0;
+        }
+
+        p {
+          color: #777777;
+        }
+
+        .verification-code {
+          background-color: #f8f8f8;
+          padding: 10px;
+          border-radius: 4px;
+          font-weight: bold;
+        }
+
+        .button {
+          display: inline-block;
+          background-color: #4caf50;
+          color: #ffffff;
+          text-decoration: none;
+          padding: 10px 20px;
+          border-radius: 4px;
+          margin-top: 20px;
+        }
+
+        .button:hover {
+          background-color: #45a049;
+        }
+      </style>
+      <div class="container">
+        <h1>Email Verification</h1>
+        <p>
+          Hello ${name}, <br />Thank you for signing up for our social media
+          app. To complete your registration, please verify your email address
+          by entering the verification code below:
+        </p>
+        <div class="verification-code">
+          <!-- <p><strong>Verification Code:</strong> 123456</p> -->
+        </div>
+        <p>If you did not sign up for our app, please disregard this email.</p>
+        <a class="button" href="{url}">Verify Email</a>
+      </div>
+    </div>
+  </body>
+</html>
