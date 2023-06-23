@@ -5,14 +5,15 @@ const { readdirSync } = require("fs");
 const dotenv = require("dotenv");
 dotenv.config();
 
-// const options = {
-//   origin: "http://localhost:3000",
-//   useSuccessStatus: 200,
-// };
-// app.use(cors(options));
+const options = {
+  origin: "http://localhost:3000",
+  useSuccessStatus: 200,
+};
+
 // Define routes
 
 const app = express();
+app.use(cors(options));
 app.use(express.json());
 readdirSync("./routes").map((r) => app.use("/", require("./routes/" + r)));
 
