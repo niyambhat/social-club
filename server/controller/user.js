@@ -110,20 +110,33 @@ const login = async (req, res) => {
   try {
     const user = await User.findOne({ email });
     if (!user) {
-      return res
-        .status(400)
-        .json({
-          message: "the email address you entered is not currently connected",
-        });
+      return res.status(400).json({
+        message: "the email address you entered is not currently connected",
+      });
     }
     const check = await bcrypt.compare(password, user.password);
     if (!check) {
       return res.status(400).json({ message: "incorrect password" });
     }
-    return res.status(200).json({ message: "Logged in successfully" });
+    const token = generateToken({ id: user._id.toString() }, "7d");
+    return res.send({
+      id: user._id,
+      username: user.username,
+      picture: user.picture,
+      firstname: user.firstname,
+      lastname: user.lastname,
+      token: token,
+      verified: user.verified,
+      message: "Succesfully connected",
+    });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };
 
-module.exports = { register, activateAccount, login };
+const auth = async (req, res) => {
+  const { user } = req;
+  res.send(user);
+};
+
+module.exports = { register, activateAccount, login, auth };
