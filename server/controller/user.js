@@ -134,9 +134,4 @@ const login = async (req, res) => {
   }
 };
 
-const auth = async (req, res) => {
-  const { user } = req;
-  res.send(user);
-};
-
-module.exports = { register, activateAccount, login, auth };
+module.exports = { register, activateAccount, login };
